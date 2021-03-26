@@ -188,8 +188,8 @@ git commit -m "first commit"
 - PUSH:
 ```
 git remote add origin https://github.com/l0g0s/angular-basicos.git
-git branch -M main
-git push -u origin main
+git branch -M master
+git push -u origin master
 ```
 - TAG
 ```
@@ -233,23 +233,23 @@ https://getbootstrap.com/
 shortcut: write `.row` + TAB -> writes: `<div class="row"></div>`
 same with `.col` ...
 
-## developers.giphy.com - buscador de gifs con API que vamos a usar
+## developers.giphy.com - GIFs finder with API
 https://developers.giphy.com/
 https://developers.giphy.com/docs/api/endpoint#search
 
-## quicktype.io - convierte de jSON a lo que quieras
+## quicktype.io - converts Json to anything
 https://quicktype.io/  
 - language TypeScript  
 - interfaces only  
 - verify JSON  
 
-## animate.style - estilos animados para hacer más agradable la vista de la web
+## animate.style - animated styles to make nicer webs
 https://animate.style/
 
-## restcountries.eu - API paises del mundo
+## restcountries.eu - API countries of the world
 https://restcountries.eu/#api-endpoints-name
 
-## primeNG - librería de componentes para angular
+## primeNG - library/framework for angular
 https://www.primefaces.org/primeng/
 npm install primeng primeicons
 add in angular.json:
@@ -264,3 +264,5 @@ add in angular.json:
 
 ## material angular io
 https://material.angular.io/
+ng add @angular/material
+`purple,y,y`
