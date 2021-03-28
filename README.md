@@ -153,6 +153,27 @@ const routes: Routes = [{
 - if reference from other ***component***  
 eg.: `<a [routerLink]="['/pais', p.alpha2Code]">Ver...</a>`  
 
+## routing lazyLoad
+create sub routing module and generate children, eg.:
+```
+const routes: Routes = [{
+    path:'',
+    children: [{ path:'login',
+        component: LoginComponent
+      }]
+    }]
+  ...
+@NgModule({
+  imports: [ RouterModule.forChild( routes ) ],
+  exports: [ RouterModule ]
+```
+then inform child routes for eg.:`/auth/` to be lazyLoad in `app-routing.module.ts`  
+```
+const routes: Routes = [  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule ) },
+```
+
 ## httpRequests
 In app.module.ts `import HttpClientModule` desde `import { HttpClientModule } from '@angular/common/http';`  
 In ***service*** import httpClient like this: `constructor(private http:HttpClient){`  
