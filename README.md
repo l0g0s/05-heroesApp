@@ -86,13 +86,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ` (xxx) ` one way exclusive from front to back - eg.`(clic)`
 `[(xxx)]` two way in-out - eg. `<input type="text" name="termino" [(ngModel)]="termino" placeholder="Buscar..."/>`
 
-## input - recibe desde otro componente
+## input - recibe from other component
 en pais-tabla.component  
 `@Input() tablaPaises: Country[] = []`  
 en por-pais.component.html  
 `<app-pais-tabla [tablaPaises]="listaPaises"></app-pais-tabla>`  
 
-## output - envía 
+## output - send 
 ```
 @Output() onEnter: EventEmitter<string> = new EventEmitter()
 buscar(){
@@ -173,6 +173,8 @@ const routes: Routes = [  {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule ) },
 ```
+Tarea Lazy-load: https://gist.github.com/Klerith/c72ea2d4192567cb42a0f62e5d271724  
+
 
 ## httpRequests
 In app.module.ts `import HttpClientModule` desde `import { HttpClientModule } from '@angular/common/http';`  
@@ -246,10 +248,10 @@ this._historial = JSON.parse( localStorage.getItem("historial")! ) || []
 ## array sort
 https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
 
-## netlify server - servidor web
+## netlify - web server  
 https://www.netlify.com/
 
-## bootstrap - estilos
+## bootstrap - styles  
 https://getbootstrap.com/
 shortcut: write `.row` + TAB -> writes: `<div class="row"></div>`
 same with `.col` ...
@@ -286,4 +288,6 @@ add in angular.json:
 ## material angular io
 https://material.angular.io/
 ng add @angular/material
-`purple,y,y`
+`purple,y,y`  
+Material icons  
+https://material.io/resources/icons/?icon=bookmark&style=baseline
