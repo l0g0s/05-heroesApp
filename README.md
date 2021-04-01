@@ -121,7 +121,7 @@ Eg.: `<tr *ngFor="let item of items; let i = index">`
 ## Module and Component  
 `ng new test` creates `app.module.ts`  
 Generate new module: `ng g m testMod` creates `src/app/test-mod/test-mod.module.ts`  
-Generate new component: `ng g c test-mod/testComp --skipTests -is` creates `src/app/test-mod/test-comp/test-comp.component.ts`  
+Generate new component: `ng g c test-mod/testComp --skip-tests -is` creates `src/app/test-mod/test-comp/test-comp.component.ts`  
 (also updates `test-mod.module.ts`)  
 To show testComp in app component first export component in testMod module, then import module in app.module, the show testComp selector in app.component.html, like this:   
 in `test-mod.module.ts` add: `exports:[TestCompComponent]`  
