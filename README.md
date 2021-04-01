@@ -22,9 +22,9 @@ default port is ```8081```, you can change it in ```package.json``` >> scripts. 
 ```
 simply change port.
 
-TypesScript Types: - https://www.typescriptlang.org/docs/handbook/2/everyday-types.html
-`?` - Optional Properties
-`!` - Non-null assertion operator - https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator
+TypesScript Types: - https://www.typescriptlang.org/docs/handbook/2/everyday-types.html  
+`?` - Optional Properties  
+`!` - Non-null assertion operator - https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator  
 
 ---
 
@@ -35,7 +35,7 @@ to create angularCLI app, execute:
 ng new appName
 ```
 - Enforce stricter type: `Y`
-- Angular routing: `N or Y` for easy work
+- Angular routing: `N or Y` for easy routing work
 - Styles types: `CSS`
 - ...can take a while...
 
@@ -59,11 +59,11 @@ Run `ng generate component componentName` to generate a new component.
 You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`:  
 ```
 ng g m moduleName
-ng g c componentName --skipTests -is
-ng g pipe pipeName   --skipTests
-ng g s app/services/app --skipTests
+ng g c componentName --skip-tests -is
+ng g pipe pipeName   --skip-tests
+ng g s app/services/app --skip-tests
 ```
-`--skipTests` skip test generation -  `-is` skip styles (css) generation
+`--skip-tests` skip test generation -  `-is` skip styles (css) generation
 
 ## Running unit tests
 
@@ -81,25 +81,25 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 # Angular
 
-## html way
-` [xxx] ` one way exclusive from back to front - eg.`[name]` 
-` (xxx) ` one way exclusive from front to back - eg.`(clic)`
+## html - data flow:
+` [xxx] ` one way exclusive from back to front - eg.`[name]`   
+` (xxx) ` one way exclusive from front to back - eg.`(click)`  
 `[(xxx)]` two way in-out - eg. `<input type="text" name="termino" [(ngModel)]="termino" placeholder="Buscar..."/>`
 
 ## input - recibe from other component
-en pais-tabla.component  
-`@Input() tablaPaises: Country[] = []`  
-en por-pais.component.html  
-`<app-pais-tabla [tablaPaises]="listaPaises"></app-pais-tabla>`  
+eg.: send to countries-table component listOfCountries by input:    
+set in countries-table.component.ts:  
+`@Input() countries: Country[] = []`  
+set in parent html component:  
+`<app-countries-table [countries]="listOfCountries"></app-countries-table>`  
 
-## output - send 
-```
-@Output() onEnter: EventEmitter<string> = new EventEmitter()
-buscar(){
-    this.onEnter.emit( this.termino )
-}
-```
-## locale Language-Country
+## output - send to other   
+eg.: declare output emitter  
+`@Output() onEnter: EventEmitter<string> = new EventEmitter()`  
+then when function find is called, emit data  
+`find() { this.onEnter.emit( this.myData ) }`  
+
+## locale Language-Country  
 Go to `app.module.ts` and add    
 ```
 import localeEs from '@angular/common/locales/es'
@@ -112,13 +112,13 @@ registerLocaleData(localeEs)
 
 ```
 
-## ngIf
+## ngIf  
 Eg.: `<div *ngIf="hayError"`
 
-## ngFor
+## ngFor  
 Eg.: `<tr *ngFor="let item of items; let i = index">`
 
-## Module and Component
+## Module and Component  
 `ng new test` creates `app.module.ts`  
 Generate new module: `ng g m testMod` creates `src/app/test-mod/test-mod.module.ts`  
 Generate new component: `ng g c test-mod/testComp --skipTests -is` creates `src/app/test-mod/test-comp/test-comp.component.ts`  
@@ -128,7 +128,7 @@ in `test-mod.module.ts` add: `exports:[TestCompComponent]`
 in `app.module.ts` add: `imports:[TestModModule]`  
 in `app.component.html` add: `<app-test-comp></app-test-comp>`  
 
-## routing 
+## routing  
 - create `app-routing.module.ts` - to show components on route  
 - import special way: `import RouterModule.forRoot(routes)`  
 - and export too: `export RouterModule`  
@@ -153,8 +153,8 @@ const routes: Routes = [{
 - if reference from other ***component***  
 eg.: `<a [routerLink]="['/pais', p.alpha2Code]">Ver...</a>`  
 
-## routing lazyLoad
-create sub routing module and generate children, eg.:
+## routing lazyLoad  
+create sub routing module and generate children, eg.:  
 ```
 const routes: Routes = [{
     path:'',
@@ -272,10 +272,11 @@ https://animate.style/
 ## restcountries.eu - API countries of the world
 https://restcountries.eu/#api-endpoints-name
 
-## primeNG - library/framework for angular
-https://www.primefaces.org/primeng/
-npm install primeng primeicons
-add in angular.json:
+## primeNG - library/framework for angular  
+https://www.primefaces.org/primeng/  
+npm install primeng --save  
+npm install primeicons --save  
+add in angular.json:  
 ```
             "styles": [
               "src/styles.css",
@@ -285,9 +286,23 @@ add in angular.json:
             ],
 ```
 
-## material angular io
-https://material.angular.io/
-ng add @angular/material
-`purple,y,y`  
+## material angular io - library/framework for angular  
+https://material.angular.io/  
+ng add @angular/material  
+`purple-green,y,y`  
 Material icons  
-https://material.io/resources/icons/?icon=bookmark&style=baseline
+https://material.io/resources/icons/?icon=bookmark&style=baseline  
+
+## flex-layout - table view library for angular  
+https://www.npmjs.com/package/@angular/flex-layout  
+npm i @angular/flex-layout
+https://github.com/angular/flex-layout    
+npm i -s @angular/flex-layout @angular/cdk  
+
+## JSON Server  
+Get a full fake REST API with zero coding  
+https://www.npmjs.com/package/json-server   
+install server:  
+npm install -g json-server  
+start server:  
+json-server --watch db.json  
