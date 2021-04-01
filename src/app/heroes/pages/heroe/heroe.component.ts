@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { switchMap, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-heroe',
@@ -8,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeroeComponent implements OnInit {
 
-  constructor() { }
+  myId!: String
+  
+  constructor(  private activatedRoute: ActivatedRoute ) { }
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe(  ({ id }) => this.myId = id )
   }
+
 
 }

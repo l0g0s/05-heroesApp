@@ -151,7 +151,14 @@ const routes: Routes = [{
     </li>  
 ```
 - if reference from other ***component***  
-eg.: `<a [routerLink]="['/pais', p.alpha2Code]">Ver...</a>`  
+First reference like this:  
+eg.: `<a [routerLink]="['/country', p.id]">See country</a>`  
+Then obtain reference in component eg.: `country-component.ts` like this:  
+```
+  myId!: String
+  constructor(  private activatedRoute: ActivatedRoute ) { }
+  ngOnInit(): void { this.activatedRoute.params.subscribe(  ({ id }) => this.myId = id ) }  
+```
 
 ## routing lazyLoad  
 create sub routing module and generate children, eg.:  
