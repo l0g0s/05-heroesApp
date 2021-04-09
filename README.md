@@ -313,3 +313,5 @@ install server:
 npm install -g json-server  
 start server:  
 json-server --watch db.json  
+
+## CRUD - Create Read Update Delete  
