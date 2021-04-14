@@ -62,6 +62,8 @@ ng g m moduleName
 ng g c componentName --skip-tests -is
 ng g pipe pipeName   --skip-tests
 ng g s app/services/app --skip-tests
+ng g guard auth/guards/auth --skip-tests
+--> Which interfaces implement? (*)CanActiva, (*)CanLoad
 ```
 `--skip-tests` skip test generation -  `-is` skip styles (css) generation
 
